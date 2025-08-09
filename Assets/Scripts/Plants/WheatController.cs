@@ -7,7 +7,7 @@ public class WheatController : PlantBase
   
     private bool hasBeenCalled;
     private bool hasGrown;
-    private bool dontSave;
+    public bool dontSave;
     bool x = true;
 
     private void Awake()
@@ -19,7 +19,30 @@ public class WheatController : PlantBase
     }
     void Update()
     {
-       if (state == GrowState.GROWING)
+        if (turnManager.state == TurnState.ENDSTEP)
+        {
+            Grow();
+            if (state == GrowState.GROWN)
+            {
+
+                dontSave = true;
+
+                if (x)
+                {
+                    StartCoroutine(Harvest());
+                    x = false;
+                }
+            }
+            if (hasBeenCalled && !dontSave)
+            {
+
+                hasBeenCalled = false;
+                SaveData();
+            }
+
+
+        }
+        if (state == GrowState.GROWING)
         {
             sprite.sprite = growing;
         }
@@ -31,28 +54,7 @@ public class WheatController : PlantBase
         {
             sprite.sprite = seed;
         }
-        if (turnManager.state == TurnState.ENDSTEP)
-        {
-            Grow();
-            if (state == GrowState.GROWN)
-            {
-               
-                dontSave = true;
-                
-                if (x){
-                    StartCoroutine(Harvest());
-                   x = false;
-                }
-            }
-            if (hasBeenCalled && !dontSave)
-            {
-              
-                hasBeenCalled = false;
-                SaveData();               
-            }
-            
-            
-        }
+        
     }
 
     protected override void Grow()

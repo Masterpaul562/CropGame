@@ -10,8 +10,7 @@ public class PlantBase : MonoBehaviour
     public GrowState state;
     public TurnManager turnManager;
     public Sprite seed;
-    public Sprite growing;
-   
+    public Sprite growing;   
     public Sprite grown;
     public SpriteRenderer sprite;
 

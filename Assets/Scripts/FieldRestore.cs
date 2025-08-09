@@ -6,6 +6,7 @@ public class FieldRestore : MonoBehaviour
 {
     [SerializeField] GameObject wheatPrefab;
     [SerializeField] GameObject cornPrefab;
+    [SerializeField] GameObject weedPrefab;
     [SerializeField] TurnManager turnMan;
     [SerializeField] private LayerMask interactable;
 
@@ -22,6 +23,9 @@ public class FieldRestore : MonoBehaviour
                 } else if (manRef.plantType[i] == "Corn")
                 {
                     Replant(cornPrefab, i);
+                } else if (manRef.plantType[i] == "Weed")
+                {
+                    Replant(weedPrefab, i);
                 }
             }
             CleanArray();
@@ -35,6 +39,7 @@ public class FieldRestore : MonoBehaviour
             manRef.plantType[i] = null;
             manRef.plantLocation[i] = new Vector3(0,0,0);
             manRef.growthState[i] = GrowState.SEED;
+            manRef.arrayNum = 0;
 
         }
     }

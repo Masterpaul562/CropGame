@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public enum TurnState { START, ACTION, ENDSTEP, SHOP};
+public enum TurnState { START, ACTION,EVILENDSTEP, ENDSTEP, SHOP};
 
 public class TurnManager : MonoBehaviour
 {
@@ -36,6 +36,7 @@ public class TurnManager : MonoBehaviour
    
     void Update()
     {
+        
         numActionDisplay.text = "Actions Left: " + numberOfActions+ "/3";
         moneyDisplay.text = "Money: " + money;
         money = Game_Manager.Instance.money;
@@ -60,7 +61,13 @@ public class TurnManager : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(1f);
-        StartCoroutine (Endstep());
+        StartCoroutine (EvilEndstep());
+    }
+    IEnumerator EvilEndstep()
+    {
+        state = TurnState.EVILENDSTEP;
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(Endstep());
     }
     IEnumerator Endstep()
     {

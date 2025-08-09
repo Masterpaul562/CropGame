@@ -23,6 +23,10 @@ public class MouseInteract : MonoBehaviour
             selected = null;
             seedSack = null;
         }
+        if(turnManager.state == TurnState.ENDSTEP)
+        {
+            CancelClick();
+        }
             
         
         if (Input.GetMouseButtonDown(0))
@@ -31,7 +35,7 @@ public class MouseInteract : MonoBehaviour
             //Debug.Log(hit.collider);    
             if (hit.collider != null)
             {
-                if (hit.collider.gameObject.tag == "SeedPack" && !isHoldingSomething)
+                if (hit.collider.gameObject.tag == "SeedPack" && !isHoldingSomething && turnManager.state == TurnState.ACTION)
                 {
                     SeedSackClick(hit);
                 }
@@ -110,8 +114,9 @@ public class MouseInteract : MonoBehaviour
     }
     private void SeedSackClick (RaycastHit2D hit)
     {
+        if (turnManager.state != TurnState.ENDSTEP)
+        {
 
-       
             if (hit.collider.gameObject.GetComponent<InteractableBase>().seedCount > 0)
             {
                 seedSack = hit.collider.gameObject;
@@ -120,6 +125,7 @@ public class MouseInteract : MonoBehaviour
                 isHoldingSomething = true;
             }
         }
+    }
     private void PickUp(RaycastHit2D hit)
     {
         hit.collider.transform.parent = transform;
