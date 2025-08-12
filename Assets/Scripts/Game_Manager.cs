@@ -14,6 +14,7 @@ public class Game_Manager : MonoBehaviour
     public int arrayNum = 0;
     public int money;
     public bool boughtWateringcan;
+    public bool boughtShovel;
     public int cornSeedCount;
 
 

@@ -24,8 +24,20 @@ public class MouseShopInteract : MonoBehaviour
                         }
                     }
                 }
+                if (hit.collider.gameObject.tag == "Shovel")
+                {
+                    if (Game_Manager.Instance != null)
+                    {
+                        if (Game_Manager.Instance.money >= 10)
+                        {
+                            Game_Manager.Instance.money -= 10;
+                            Game_Manager.Instance.boughtShovel = true;
+                        }
+                    }
+                }
 
-                if(hit.collider.gameObject.tag == "SeedPack")
+
+                if (hit.collider.gameObject.tag == "SeedPack")
                 {
 
                     Buy(hit.collider.gameObject.name);

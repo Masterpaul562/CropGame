@@ -11,8 +11,8 @@ public class WeedController : PlantBase
     [SerializeField] private bool shouldHarvest;
     [SerializeField] GameObject weed;
     [SerializeField] LayerMask interactable;
-    [SerializeField] private bool hasGrown;
-    [SerializeField] private bool justMade = false;
+    [SerializeField] public bool hasGrown;
+    [SerializeField] public bool justMade = false;
 
     private void Awake()
     {

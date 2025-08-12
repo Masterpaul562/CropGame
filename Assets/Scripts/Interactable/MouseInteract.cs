@@ -32,6 +32,7 @@ public class MouseInteract : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.forward, 10, interactable);
+            
             //Debug.Log(hit.collider);    
             if (hit.collider != null)
             {
@@ -48,6 +49,7 @@ public class MouseInteract : MonoBehaviour
 
                 if (hit.collider.gameObject.tag == "Tile")
                 {
+                    var tileScript = hit.collider.GetComponent<Tile>();
                    if (selected != null)
                     {
                         if(selected.tag == "WateringCan" && turnManager.numberOfActions>0)
@@ -61,7 +63,18 @@ public class MouseInteract : MonoBehaviour
                                 }
                             }
                         }
-
+                        if (selected.tag == "Shovel" && turnManager.numberOfActions > 0)
+                        {
+                            if (tileScript.occupied)
+                            {
+                                if (hit.collider.transform.GetChild(2).gameObject.tag == "Weed")
+                                {
+                                    tileScript.occupied = false;
+                                    Destroy(hit.collider.transform.GetChild(2).gameObject);
+                                    turnManager.numberOfActions--;
+                                }
+                            }
+                        }
 
                         if (selected.tag == "Plantable")
                         {
@@ -96,9 +109,9 @@ public class MouseInteract : MonoBehaviour
 
         if (isHoldingSomething)
         {
-            if(selected.tag == "WateringCan")
+            if(selected.layer == 8)
             {
-                selected.transform.position = selected.gameObject.GetComponent<WateringCanController>().ogPos;
+                selected.transform.position = selected.gameObject.GetComponent<ItemBase>().ogPos;
                 selected.GetComponent<BoxCollider2D>().enabled = true;
                 selected.transform.parent = null;
                 isHoldingSomething = false;

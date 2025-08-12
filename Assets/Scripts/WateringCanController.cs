@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WateringCanController : MonoBehaviour
+public class WateringCanController : ItemBase
 {
-    public Vector3 ogPos;
+    
     [SerializeField] Sprite pourCan;
     [SerializeField] Sprite defCan;
     private SpriteRenderer sprite;
