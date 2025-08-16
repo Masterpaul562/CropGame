@@ -10,6 +10,7 @@ public class MouseInteract : MonoBehaviour
    [SerializeField] private GameObject selected;
     [SerializeField] private TurnManager turnManager;
     [SerializeField] private GameObject seedSack;
+    [SerializeField] private MouseHighlight highLight;
 
 
 
@@ -43,8 +44,19 @@ public class MouseInteract : MonoBehaviour
 
                 if(hit.collider.gameObject.layer == 8 && !isHoldingSomething)
                 {
-                   
-                    PickUp(hit);
+                    if (hit.collider.gameObject.tag == "Weedspray")
+                    {
+                        if (Game_Manager.Instance.amountWeedspray > 0) 
+                        {
+                            PickUp(hit);
+                            highLight.holdingCan = true;
+                            Game_Manager.Instance.amountWeedspray--;
+                        }
+                    }
+                    else
+                    {
+                        PickUp(hit);
+                    }
                 }
 
                 if (hit.collider.gameObject.tag == "Tile")
@@ -111,6 +123,11 @@ public class MouseInteract : MonoBehaviour
         {
             if(selected.layer == 8)
             {
+                if (selected.tag == "Weedspray")
+                {
+                   
+                   Game_Manager.Instance.amountWeedspray++;
+                }
                 selected.transform.position = selected.gameObject.GetComponent<ItemBase>().ogPos;
                 selected.GetComponent<BoxCollider2D>().enabled = true;
                 selected.transform.parent = null;

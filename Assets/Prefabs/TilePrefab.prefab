@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 783770465565711013}
   - component: {fileID: 430317922613839294}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: HighLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6068934336426182158}
   - component: {fileID: 1740365550171437921}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 3282620196444395472}
   - component: {fileID: 1218366647128325810}
   - component: {fileID: 3748634831846596395}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: TilePrefab
   m_TagString: Tile
   m_Icon: {fileID: 0}

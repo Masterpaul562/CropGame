@@ -15,6 +15,8 @@ public class Game_Manager : MonoBehaviour
     public int money;
     public bool boughtWateringcan;
     public bool boughtShovel;
+    public bool boughtWeedspray;
+    public int amountWeedspray;
     public int cornSeedCount;
 
 

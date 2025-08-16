@@ -10,6 +10,7 @@ TagManager:
   - WateringCan
   - Weed
   - Shovel
+  - Weedspray
   layers:
   - Default
   - TransparentFX

@@ -7,7 +7,7 @@ public class Tile : MonoBehaviour
     //public GameObject plant;
     [SerializeField] private Color baseColor, offSetColor;
     [SerializeField] private SpriteRenderer render;
-    [SerializeField] private GameObject highLight;
+    [SerializeField] public GameObject highLight;
     public bool isWatered;
     public bool occupied;
 
@@ -34,11 +34,11 @@ public class Tile : MonoBehaviour
     {
         render.color = isOffset ? offSetColor : baseColor;
     }
-    void OnMouseEnter ()
-    {
-        highLight.SetActive (true);
-    }
-    void OnMouseExit () { 
-    highLight.SetActive (false);
-    }
+   // void OnMouseEnter ()
+   // {
+     //   highLight.SetActive (true);
+   // }
+    //void OnMouseExit () { 
+   // highLight.SetActive (false);
+   // }
 }
