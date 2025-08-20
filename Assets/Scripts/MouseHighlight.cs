@@ -16,21 +16,22 @@ public class MouseHighlight : MonoBehaviour
 
             for (int i = 0; i < 3; i++)
             {
-                if (i == 1)
+                if (i == 0)
                 {
                     hit = RayCast(1, 0);
                 }
-                if (i == 2)
+                if (i == 1)
                 {
                     hit = RayCast(1, 1);
                 }
-                if (i==3)
+                if (i==2)
                 {
                     hit = RayCast(0, 1);
                 }
                 if (hit.collider != null)
                 {
                     hit.collider.GetComponent<Tile>().highLight.SetActive(true);
+                    hit.collider.gameObject.GetComponent<Tile>().Start();
                 }
             }
 

@@ -17,23 +17,33 @@ public class Tile : MonoBehaviour
         {
             if (transform.GetChild(2) != null)
             {
-                
 
-                 if (isWatered)
-                 {
-                   
-                        transform.GetChild(2).gameObject.GetComponent<PlantBase>().isWatered = true;
-                   
-                 }
-                
+
+                if (isWatered)
+                {
+
+                    transform.GetChild(2).gameObject.GetComponent<PlantBase>().isWatered = true;
+
+                }
+
             }
         }
     }
-   
+
     public void Init(bool isOffset)
     {
         render.color = isOffset ? offSetColor : baseColor;
     }
+    public void Start()
+    {
+        StartCoroutine(OffHighlight());
+    }
+     IEnumerator OffHighlight()
+    {
+        yield return new WaitForSeconds(1f);
+        highLight.SetActive(false);
+    }
+        
    // void OnMouseEnter ()
    // {
      //   highLight.SetActive (true);
@@ -41,4 +51,5 @@ public class Tile : MonoBehaviour
     //void OnMouseExit () { 
    // highLight.SetActive (false);
    // }
+   
 }
