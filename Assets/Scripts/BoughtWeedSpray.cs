@@ -12,6 +12,9 @@ public class BoughtWeedSpray : MonoBehaviour
             {
                 transform.GetChild(0).gameObject.SetActive(true);
                 Destroy(this);
+            } else
+            {
+                transform.GetChild(0).gameObject.SetActive(false);
             }
         }
     }

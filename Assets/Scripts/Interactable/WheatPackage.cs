@@ -22,7 +22,14 @@ public class WheatPackage : InteractableBase
     private void Update()
     {
         countDisplay.text = "Wheat: " + seedCount;
-        Game_Manager.Instance.wheatSeedCount = seedCount;
+        if (turnManager.state != TurnState.ENDSTEP)
+        {
+            Game_Manager.Instance.wheatSeedCount = seedCount;
+        }
+        else
+        {
+            seedCount = Game_Manager.Instance.wheatSeedCount;
+        }
     }
     protected override void Interact()
     {
@@ -30,6 +37,7 @@ public class WheatPackage : InteractableBase
        var seedScript = spawnedSeed.GetComponent<PlantBase>();     
         
         spawnedSeed.transform.parent = cursor.transform;
+        
         seedScript.turnManager = turnManager;
         seedScript.state = GrowState.SEED;
               

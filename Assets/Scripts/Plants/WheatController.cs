@@ -83,6 +83,7 @@ public class WheatController : PlantBase
        
         transform.parent.GetComponent<Tile>().occupied = false;
         Game_Manager.Instance.money += 2;
+        Game_Manager.Instance.wheatSeedCount += 2;
         yield return new WaitForSeconds(2f);
         // HARVEST ANIMATINO HERE
         Destroy(gameObject);

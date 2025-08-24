@@ -102,6 +102,7 @@ public class CornController : PlantBase
 
         transform.parent.GetComponent<Tile>().occupied = false;
         Game_Manager.Instance.money += 9;
+        Game_Manager.Instance.cornSeedCount += 2;
         yield return new WaitForSeconds(2f);
         // HARVEST ANIMATINO HERE
         Destroy(gameObject);

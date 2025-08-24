@@ -14,6 +14,7 @@ public class PlantBase : MonoBehaviour
     public Sprite grown;
     public SpriteRenderer sprite;
 
+
     protected virtual void Grow()
     {
 

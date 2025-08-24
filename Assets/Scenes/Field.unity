@@ -757,7 +757,7 @@ MonoBehaviour:
   weedPrefab: {fileID: 7616378527485589377, guid: 7ce6ddef9509b93488c9e9ea2a7cf1fb, type: 3}
   interactable:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 128
 --- !u!4 &694093732
 Transform:
   m_ObjectHideFlags: 0
@@ -893,6 +893,9 @@ MonoBehaviour:
   turnManager: {fileID: 1311208102}
   seedSack: {fileID: 0}
   highLight: {fileID: 753601852}
+  tile:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &753601852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,9 +908,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe58b31b06a85d448919704f3da391a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tile:
-    serializedVersion: 2
-    m_Bits: 128
   holdingCan: 0
 --- !u!1 &833725836
 GameObject:
@@ -1406,7 +1406,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1197482207}
-  - component: {fileID: 1197482206}
   - component: {fileID: 1197482205}
   m_Layer: 0
   m_Name: 'WeedSprayHolder '
@@ -1425,18 +1424,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b43ce7ef5e9a8474e94676478cbcd7df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1197482206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1197482204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30fcff43c7fd92447ae6852739052f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1197482207
@@ -1509,7 +1496,7 @@ MonoBehaviour:
   boughtWateringcan: 0
   boughtShovel: 0
   boughtWeedspray: 0
-  amountWeedspray: 1
+  amountWeedspray: 0
   cornSeedCount: 0
 --- !u!1 &1311208101
 GameObject:
@@ -2376,6 +2363,7 @@ MonoBehaviour:
   width: 6
   height: 6
   tilePrefab: {fileID: 1218366647128325810, guid: d827009307649bf4fa514bca9d9afc24, type: 3}
+  mouseScript: {fileID: 753601852}
   cam: {fileID: 519420032}
   gridSpacingX: 1
   gridSpacingY: 1

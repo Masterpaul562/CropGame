@@ -109,6 +109,6 @@ MonoBehaviour:
   weed: {fileID: 7616378527485589377}
   interactable:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   hasGrown: 0
   justMade: 0

@@ -11,6 +11,7 @@ public class MouseInteract : MonoBehaviour
     [SerializeField] private TurnManager turnManager;
     [SerializeField] private GameObject seedSack;
     [SerializeField] private MouseHighlight highLight;
+    [SerializeField] private LayerMask tile;
 
 
 
@@ -98,6 +99,11 @@ public class MouseInteract : MonoBehaviour
                                
                             }
                         }
+                        if(selected.tag == "Weedspray")
+                        {
+                            Debug.Log("yay");
+                            WeedSpraying(hit,0,0);
+                        }
                     }
                 }
 
@@ -125,7 +131,7 @@ public class MouseInteract : MonoBehaviour
             {
                 if (selected.tag == "Weedspray")
                 {
-                   
+                    highLight.holdingCan = false;
                    Game_Manager.Instance.amountWeedspray++;
                 }
                 selected.transform.position = selected.gameObject.GetComponent<ItemBase>().ogPos;
@@ -167,5 +173,53 @@ public class MouseInteract : MonoBehaviour
     {
         selected.GetComponent<WateringCanController>().StartWater();
         hit.collider.GetComponent<Tile>().isWatered = true;
+    }
+    private void WeedSpraying(RaycastHit2D hit, int x, int y)
+    {
+       
+        
+        for (int i = 0; i < 4; i++)
+        {
+            
+            if (i == 0)
+            {
+                x = 1;
+                y = 0; 
+            }
+            if (i == 1)
+            {
+                x = 1;
+                y= 1;
+            }
+            if (i == 2)
+            {
+                x = 0;
+                y = 1;
+            }
+            if (i == 3)
+            {
+                x = 0;
+                y = 0;  
+            }
+            var hitTile = Physics2D.Raycast(new Vector2(hit.transform.position.x - x, hit.transform.position.y - y), Vector3.forward, 10, tile);
+            
+            if (hitTile.collider != null)
+            {
+                Debug.Log(hitTile.collider.gameObject);
+                var script =  hitTile.collider.GetComponent<Tile>();
+                if (script.occupied)
+                {
+                    if(hitTile.collider.transform.GetChild(2).gameObject.tag == "Weed")
+                    {
+                        script.occupied = false;
+                        Destroy(hitTile.collider.transform.GetChild(2).gameObject);
+                    }
+                }
+                hitTile.collider.transform.GetChild(0).gameObject.SetActive(false);
+            }
+        }
+        Game_Manager.Instance.amountWeedspray--;
+        turnManager.numberOfActions--;
+        CancelClick();
     }
 }

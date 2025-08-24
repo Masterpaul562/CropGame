@@ -26,7 +26,14 @@ public class CornPackage : InteractableBase
     private void Update()
     {
         countDisplay.text = "Corn: " + seedCount;
-         Game_Manager.Instance.cornSeedCount = seedCount;
+        if (turnManager.state != TurnState.ENDSTEP)
+        {
+            Game_Manager.Instance.cornSeedCount = seedCount;
+        }
+        else
+        {
+            seedCount = Game_Manager.Instance.cornSeedCount;
+        }
     }
 
 
@@ -37,6 +44,7 @@ public class CornPackage : InteractableBase
         var seedScript = spawnedSeed.GetComponent<PlantBase>();
 
         spawnedSeed.transform.parent = cursor.transform;
+       
         seedScript.turnManager = turnManager;
         seedScript.state = GrowState.SEED;
 

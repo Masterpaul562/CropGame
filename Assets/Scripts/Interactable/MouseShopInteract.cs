@@ -36,33 +36,50 @@ public class MouseShopInteract : MonoBehaviour
                     }
                 }
 
-
-                if (hit.collider.gameObject.tag == "SeedPack")
+                if (hit.collider.gameObject.tag == "Weedspray")
                 {
-
-                    Buy(hit.collider.gameObject.name);
+                    if (Game_Manager.Instance != null)
+                    {
+                        if (Game_Manager.Instance.money >= 5)
+                        {
+                            Game_Manager.Instance.money -= 5;
+                            Game_Manager.Instance.boughtWeedspray = true;
+                            Game_Manager.Instance.amountWeedspray++;
+                        }
+                    }
                 }
 
+
             }
         }
     }
-    private void Buy(string type)
-    {
-        if (type == "WheatSack")
-        {
-            if (Game_Manager.Instance.money >= 1)
-            {
-                Game_Manager.Instance.money -= 1;
-                Game_Manager.Instance.wheatSeedCount += 1;
-            }
-        }
-        if (type == "CornSack")
-        {
-            if (Game_Manager.Instance.money >= 3)
-            {
-                Game_Manager.Instance.money -= 3;
-                Game_Manager.Instance.cornSeedCount += 1;
-            }
-        }
-    }
+   
 }
+
+
+
+
+//if (hit.collider.gameObject.tag == "SeedPack")
+//{
+//
+//  Buy(hit.collider.gameObject.name);
+//}
+//private void Buy(string type)
+//{
+ //   if (type == "WheatSack")
+  //  {
+  //      if (Game_Manager.Instance.money >= 1)
+ //       {
+ //           Game_Manager.Instance.money -= 1;
+ //           Game_Manager.Instance.wheatSeedCount += 1;
+//        }
+//    }
+//    if (type == "CornSack")
+//    {
+ //       if (Game_Manager.Instance.money >= 3)
+ //       {
+  //          Game_Manager.Instance.money -= 3;
+ //           Game_Manager.Instance.cornSeedCount += 1;
+//        }
+//    }
+//}

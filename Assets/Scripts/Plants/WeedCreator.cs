@@ -25,9 +25,7 @@ public class WeedCreator : MonoBehaviour
             int random = Random.Range(0, 3);
             int x = Random.Range(0, 6);
             int y = Random.Range(0, 6);
-            Debug.Log(random);
-            Debug.Log(x);
-            Debug.Log(y);
+            
             if (random == 0)
             {
                 StartCoroutine(Plant(x, y));
@@ -38,9 +36,9 @@ public class WeedCreator : MonoBehaviour
 
     private IEnumerator Plant(int x, int y)
     {
-        Debug.Log("yay");
+       
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(x, y), Vector3.forward, 10, interactable);
-        Debug.Log(hit.collider);
+       
         if (hit.collider != null)
         {
             var tileScript = hit.collider.GetComponent<Tile>();
@@ -51,7 +49,7 @@ public class WeedCreator : MonoBehaviour
                     doOnce = true;
                     StopCoroutine(Plant(x,y));
 
-                   // yield break;
+                   
                 }else if (tileScript.transform.GetChild(2).gameObject.tag == "Plantable")
                 {
                     tileScript.occupied = false;

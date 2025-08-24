@@ -46,6 +46,7 @@ public class TurnManager : MonoBehaviour
     {
         wheatSack.GetComponent<InteractableBase>().seedCount = 4;
         Game_Manager.Instance.money = 5;
+        
         yield return new WaitForSeconds(.5f);
         StartCoroutine(Action());
     }

@@ -215,10 +215,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae61a128de38945428331af3ba6176f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tile:
+    serializedVersion: 2
+    m_Bits: 128
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   offSetColor: {r: 0.57861626, g: 0.57861626, b: 0.57861626, a: 1}
   render: {fileID: 1740365550171437921}
   highLight: {fileID: 130506404971980728}
+  mouseScript: {fileID: 0}
   isWatered: 0
   occupied: 0
 --- !u!61 &3748634831846596395
