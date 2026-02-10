@@ -13,6 +13,9 @@ You are a farmer! Plant crops and harvest them to gain score. Gain enough score 
 
 <details>
   <summary>Art and Visual Desing</summary>
-  * Background for the game. Used as one big image. Made in Piskel. 
+   Background for the game. Used as one big image. Made in Piskel. 
   <p><img src = "https://github.com/Masterpaul562/CropGame/blob/main/ReadMeDocs/CropGameBackGround.png?raw=true" alt = "Example" ></p>
+  Watering Can used as item to water plants. Has an animation when pouring water on plant. Made in Piskel. 
+  <p><img src = "https://github.com/Masterpaul562/CropGame/blob/main/Assets/Art/Sprites/WateringCan.png?raw=true" alt = "Example" ></p>
+ 
 </details>
