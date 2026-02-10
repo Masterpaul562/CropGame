@@ -13,5 +13,5 @@ You are a farmer! Plant crops and harvest them to gain score. Gain enough score 
 
 <details>
   <summary>Art and Visual Desing</summary>
-  <p><img src = "" alt = "Example" ></p>
+  <p><img src = "https://github.com/Masterpaul562/CropGame/blob/main/ReadMeDocs/CropGameBackGround.png?raw=true" alt = "Example" ></p>
 </details>
