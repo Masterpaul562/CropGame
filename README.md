@@ -10,3 +10,8 @@ You are a farmer! Plant crops and harvest them to gain score. Gain enough score 
 <p><img src = "https://github.com/Masterpaul562/CropGame/blob/main/ReadMeDocs/CropGameDiagram.png?raw=true" alt = "Example" </p>
 
 </details>
+
+<details>
+  <summary>Art and Visual Desing</summary>
+  <p><img src = "" alt = "Example" ></p>
+</details>
